@@ -1,8 +1,8 @@
 terraform {
 backend "s3"{
     bucket         = "type the name of your bucket"
-    key            = "terraform.tfstate"
+    key            = "dev/terraform.tfstate"
     encrypt        = true
-    region         = "${var.region}"
+    region         = "type your region"
   }
 }
