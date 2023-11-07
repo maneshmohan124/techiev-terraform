@@ -10,6 +10,8 @@ terraform {
 resource "aws_instance" "r100c96" {
   ami               = "ami-02b8534ff4b424939"
   instance_type     = "t2.micro"
+  subnet_id = aws_subnet.publicsub1.id
+  vpc_security_group_ids = [aws_security_group.techievsg1.id]
   availability_zone = "us-east-2a"
   key_name          = "awsclass9"
   user_data         = file("installcommand.sh")
