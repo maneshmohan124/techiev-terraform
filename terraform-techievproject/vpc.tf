@@ -15,14 +15,6 @@ resource "aws_subnet" "publicsub1" {
   }
 }
 
-resource "aws_subnet" "publicsub2" {
-  vpc_id     = aws_vpc.terraform.id
-  cidr_block = "10.0.2.0/24"
-  tags = {
-    Name = "subentsub2"
-  }
-}
-
 resource "aws_internet_gateway" "gw" {
   vpc_id = aws_vpc.terraform.id
 

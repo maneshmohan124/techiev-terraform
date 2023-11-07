@@ -12,6 +12,7 @@ resource "aws_instance" "r100c96" {
   instance_type     = "t2.micro"
   subnet_id = aws_subnet.publicsub1.id
   vpc_security_group_ids = [aws_security_group.techievsg1.id]
+  availability_zone = "us-east-2a"
   key_name          = "awsclass9"
   associate_public_ip_address = true
   user_data         = file("installcommand.sh")
@@ -20,7 +21,7 @@ resource "aws_instance" "r100c96" {
   }
 
   provisioner "local-exec" {
-    command = "echo ${aws_instance.r100c96.public_dns} > inventory"
+    command = "echo ${aws_instance.r100c96.public_ip} > inventory"
   }
 
    provisioner "local-exec" {
