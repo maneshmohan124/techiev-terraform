@@ -23,9 +23,9 @@ resource "aws_instance" "r100c96" {
     command = "echo ${aws_instance.r100c96.public_dns} > inventory"
   }
 
-  #provisioner "local-exec" {
-  #  command = "sleep 150"
-  #}
+   provisioner "local-exec" {
+    command = "sleep 300"
+  }
 
   provisioner "local-exec" {
     command = "ansible all -m shell -a 'yum -y install httpd; systemctl restart httpd'"
